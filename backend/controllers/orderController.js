@@ -17,7 +17,7 @@ const configuredDeliveryCharge = Number(process.env.DELIVERY_CHARGE);
 const deliveryCharge = Number.isFinite(configuredDeliveryCharge) && configuredDeliveryCharge >= 0
     ? configuredDeliveryCharge
     : 5;
-const frontendUrl = "https://swaadly-frontend.onrender.com/"
+const frontendUrl = "https://swaadly-frontend.onrender.com"
 
 const placeOrder = async (req, res) => {
     let newOrder;
