@@ -16,8 +16,13 @@ const currency = process.env.STRIPE_CURRENCY || "inr";
 const configuredDeliveryCharge = Number(process.env.DELIVERY_CHARGE);
 const deliveryCharge = Number.isFinite(configuredDeliveryCharge) && configuredDeliveryCharge >= 0
     ? configuredDeliveryCharge
+<<<<<<< HEAD
     : 50;
 const frontendUrl = process.env.FRONTEND_URL || "http://localhost:5173";
+=======
+    : 5;
+const frontendUrl = "https://swaadly-frontend.onrender.com"
+>>>>>>> f824547395dc79abcf27206bea21cda53bacf5bc
 
 const placeOrder = async (req, res) => {
     let newOrder;

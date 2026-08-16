@@ -5,7 +5,7 @@ import axios from "axios";
 export const StoreContext = createContext(null);
 
 const StoreContextProvider = (props) => {
-    const url = import.meta.env.VITE_API_URL || "http://localhost:4000";
+    const url = "https://swaadly-backend.onrender.com";
     const [food_list, setFoodList] = useState(localFoodList);
     const [cartItems, setCartItems] = useState({});
     const [token, setToken] = useState("");
