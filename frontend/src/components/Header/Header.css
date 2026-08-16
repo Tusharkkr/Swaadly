@@ -2,7 +2,7 @@
     min-height: 500px;
     height: 36vw;
     margin: 28px auto 62px;
-    background: url('/header_img.png') no-repeat;
+    background: url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1600&q=80') no-repeat;
     background-size: cover;
     background-position: center;
     position: relative;

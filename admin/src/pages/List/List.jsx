@@ -53,7 +53,7 @@ const List = () => {
                 <img src={item.image.startsWith('http') || item.image.startsWith('/') ? item.image : `${url}/images/${item.image}`} alt={item.name} />
                 <p>{item.name}</p>
                 <p>{item.category}</p>
-                <p>${item.price}</p>
+                 <p>₹{item.price}</p>
                 <p className='cursor' onClick={()=>removeFood(item._id)}>x</p>
               </div>
             )

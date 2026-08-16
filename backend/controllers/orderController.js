@@ -12,11 +12,11 @@ const isStripeConfigured = Boolean(
     process.env.STRIPE_SECRET_KEY.startsWith("sk_")
 );
 const stripe = isStripeConfigured ? new Stripe(process.env.STRIPE_SECRET_KEY) : null;
-const currency = process.env.STRIPE_CURRENCY || "usd";
+const currency = process.env.STRIPE_CURRENCY || "inr";
 const configuredDeliveryCharge = Number(process.env.DELIVERY_CHARGE);
 const deliveryCharge = Number.isFinite(configuredDeliveryCharge) && configuredDeliveryCharge >= 0
     ? configuredDeliveryCharge
-    : 5;
+    : 50;
 const frontendUrl = process.env.FRONTEND_URL || "http://localhost:5173";
 
 const placeOrder = async (req, res) => {

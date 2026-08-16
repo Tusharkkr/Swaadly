@@ -110,7 +110,7 @@ const Explore = () => {
                 <div className="stat-card">
                     <span className="stat-icon">💵</span>
                     <div>
-                        <h3>${avgPrice}</h3>
+                        <h3>₹{avgPrice}</h3>
                         <p>Average Price</p>
                     </div>
                 </div>
@@ -197,7 +197,7 @@ const Explore = () => {
                                 <div className="card-body">
                                     <div className="card-header">
                                         <h3 className="item-title">{item.name}</h3>
-                                        <span className="item-price">${item.price}</span>
+                                        <span className="item-price">₹{item.price}</span>
                                     </div>
                                     <p className="item-desc">{item.description}</p>
                                     <div className="card-actions">
@@ -233,7 +233,7 @@ const Explore = () => {
                             />
                             <div className="modal-info">
                                 <p><strong>Category:</strong> <span className="category-badge">{selectedItem.category}</span></p>
-                                <p><strong>Price:</strong> <span className="item-price">${selectedItem.price}</span></p>
+                                <p><strong>Price:</strong> <span className="item-price">₹{selectedItem.price}</span></p>
                                 <p><strong>Description:</strong></p>
                                 <p className="modal-desc">{selectedItem.description}</p>
                                 <p className="modal-id"><small>Item ID: {selectedItem._id}</small></p>

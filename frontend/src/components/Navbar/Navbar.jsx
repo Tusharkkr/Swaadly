@@ -27,14 +27,11 @@ const Navbar = ({ setShowLogin }) => {
       </Link>
       <ul className="navbar-menu">
         <Link to="/" onClick={() => setMenu("home")} className={`${menu === "home" ? "active" : ""}`}>Home</Link>
-        <a href='#explore-menu' onClick={() => setMenu("menu")} className={`${menu === "menu" ? "active" : ""}`}>Menu</a>
-        <a href='#app-download' onClick={() => setMenu("mob-app")} className={`${menu === "mob-app" ? "active" : ""}`}>Mobile app</a>
-        <a href='#footer' onClick={() => setMenu("contact")} className={`${menu === "contact" ? "active" : ""}`}>Contact</a>
+        <a href='/#explore-menu' onClick={() => setMenu("menu")} className={`${menu === "menu" ? "active" : ""}`}>Menu</a>
+        <a href='/#app-download' onClick={() => setMenu("mob-app")} className={`${menu === "mob-app" ? "active" : ""}`}>Mobile app</a>
+        <a href='/#footer' onClick={() => setMenu("contact")} className={`${menu === "contact" ? "active" : ""}`}>Contact</a>
       </ul>
       <div className="navbar-right">
-        <button className="navbar-search" type="button" aria-label="Search menu">
-          <img src={assets.search_icon} alt="" />
-        </button>
         <Link to='/cart' className='navbar-cart'>
           <svg className="navbar-cart-icon" viewBox="0 0 24 24" aria-hidden="true">
             <path d="M4 5h2l1.5 10.5h9.8L20 8H7" />

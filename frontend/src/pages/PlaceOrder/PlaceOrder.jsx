@@ -19,6 +19,8 @@ const PlaceOrder = () => {
         phone: ""
     })
 
+    const [loading, setLoading] = useState(false);
+
     const { getTotalCartAmount, token, food_list, cartItems, url } = useContext(StoreContext);
 
     const navigate = useNavigate();
@@ -31,6 +33,7 @@ const PlaceOrder = () => {
 
     const placeOrder = async (e) => {
         e.preventDefault()
+        setLoading(true);
         let orderItems = [];
         food_list.forEach((item) => {
             if (cartItems[item._id] > 0) {
@@ -40,7 +43,7 @@ const PlaceOrder = () => {
         let orderData = {
             address: data,
             items: orderItems,
-            amount: getTotalCartAmount() + 5,
+            amount: getTotalCartAmount() + 50,
         }
         try {
             const response = await axios.post(url + "/api/order/place", orderData, { headers: { token } });
@@ -54,9 +57,11 @@ const PlaceOrder = () => {
                 }
             } else {
                 toast.error(response.data.message || "Something went wrong");
+                setLoading(false);
             }
         } catch (error) {
             toast.error(error.response?.data?.message || "Unable to place order");
+            setLoading(false);
         }
     }
 
@@ -94,14 +99,16 @@ const PlaceOrder = () => {
                 <div className="cart-total">
                     <h2>Cart Totals</h2>
                     <div>
-                        <div className="cart-total-details"><p>Subtotal</p><p>${getTotalCartAmount()}</p></div>
+                        <div className="cart-total-details"><p>Subtotal</p><p>₹{getTotalCartAmount()}</p></div>
                         <hr />
-                        <div className="cart-total-details"><p>Delivery Fee</p><p>${getTotalCartAmount() === 0 ? 0 : 5}</p></div>
+                        <div className="cart-total-details"><p>Delivery Fee</p><p>₹{getTotalCartAmount() === 0 ? 0 : 50}</p></div>
                         <hr />
-                        <div className="cart-total-details"><b>Total</b><b>${getTotalCartAmount() === 0 ? 0 : getTotalCartAmount() + 5}</b></div>
+                        <div className="cart-total-details"><b>Total</b><b>₹{getTotalCartAmount() === 0 ? 0 : getTotalCartAmount() + 50}</b></div>
                     </div>
                 </div>
-                <button className='place-order-submit' type='submit'>Proceed To Payment</button>
+                <button className='place-order-submit' type='submit' disabled={loading}>
+                    {loading ? "Redirecting to Stripe..." : "Proceed To Payment"}
+                </button>
             </div>
         </form>
     )
